@@ -109,7 +109,7 @@ pt-BR:
           settings: "Configurações"
           log_out: "Sair"
           users: "TODO Users"
-  activerecord:
+  mongoid:
     attributes:
       monologue/user:
         password_digest: "TODO Password confirmation"

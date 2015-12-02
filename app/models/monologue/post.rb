@@ -1,13 +1,23 @@
-class Monologue::Post < ActiveRecord::Base
-  has_many :taggings
-  has_many :tags, -> { order "id ASC" }, through: :taggings, dependent: :destroy
+class Monologue::Post
+  include Mongoid::Document
+  include Mongoid::Timestamps
+
+  has_many :taggings, class_name: "Monologue::Tagging"
+  has_and_belongs_to_many :tags, dependent: :destroy, class_name: "Monologue::Tag", order: [:created_at, :asc]
   before_validation :generate_url
-  belongs_to :user
+  belongs_to :user, class_name: "Monologue::User"
 
-  scope :default,  -> {order("published_at DESC, monologue_posts.created_at DESC, monologue_posts.updated_at DESC") }
-  scope :published, -> { default.where(published: true).where("published_at <= ?", DateTime.now) }
+  field :title, type: String
+  field :content, type: String
+  field :url, type: String
+  
+  field :published_at, type: Time
+  field :published, type: Boolean
 
-  default_scope{includes(:tags)}
+  scope :default,  -> {order([[:published_at, :desc], [:created_at, :desc], [:updated_at, :desc]]) }
+  scope :published, -> { default.where(:published_at.lte => DateTime.now, published: true).order([[:published_at, :desc]]) }
+
+  default_scope -> {includes(:tags)}
 
   validates :user_id, presence: true
   validates :title, :content, :url, :published_at, presence: true
@@ -19,7 +29,7 @@ class Monologue::Post < ActiveRecord::Base
   end
 
   def tag_list
-    self.tags.map { |tag| tag.name }.join(", ") if self.tags
+    self.tags.pluck(:name).join(", ") if self.tags
   end
 
   def tag!(tags_attr)
@@ -72,6 +82,6 @@ class Monologue::Post < ActiveRecord::Base
   end
 
   def url_do_not_start_with_slash
-    errors.add(:url, I18n.t("activerecord.errors.models.monologue/post.attributes.url.start_with_slash")) if self.url.start_with?("/")
+    errors.add(:url, I18n.t("mongoid.errors.models.monologue/post.attributes.url.start_with_slash")) if self.url.start_with?("/")
   end
 end

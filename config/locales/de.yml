@@ -109,7 +109,7 @@ de:
           settings: "Einstellung"
           log_out: "Abmelden"
           users: "Benutzer"
-  activerecord:
+  mongoid:
     attributes:
       monologue/user:
         password_digest: "Password bestätigung"

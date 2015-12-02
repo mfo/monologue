@@ -6,9 +6,9 @@ class Monologue::PostsController < Monologue::ApplicationController
 
   def show
     if monologue_current_user
-      @post = Monologue::Post.default.where("url = :url", {url: params[:post_url]}).first
+      @post = Monologue::Post.default.where(url: params[:post_url]).first
     else
-      @post = Monologue::Post.published.where("url = :url", {url: params[:post_url]}).first
+      @post = Monologue::Post.published.where(url: params[:post_url]).first
     end
     if @post.nil?
       not_found
@@ -18,8 +18,8 @@ class Monologue::PostsController < Monologue::ApplicationController
   def feed
     @posts = Monologue::Post.published.limit(25)
     if params[:tags].present?
-      tags = Monologue::Tag.where(name: params[:tags].split(",")).pluck(:id)
-      @posts = @posts.joins(:taggings).where("monologue_taggings.tag_id in (?)", tags)
+      tags = Monologue::Tag.where(name_downcase: params[:tags].split(",")).pluck(:id)
+      @posts = @posts.where(:tag_ids.in => tag_ids)
     end
     render 'feed', layout: false
   end

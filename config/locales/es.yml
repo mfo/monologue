@@ -121,7 +121,7 @@ es:
           settings: "Ajustes"
           log_out: "Cerrar sesión"
           users: "Usuarios"
-  activerecord:
+  mongoid:
     attributes:
       monologue/user:
         password_digest: "Confirmación de contraseña"

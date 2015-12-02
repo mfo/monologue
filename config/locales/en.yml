@@ -109,7 +109,7 @@ en:
           settings: "Settings"
           log_out: "Log out"
           users: "Users"
-  activerecord:
+  mongoid:
     attributes:
       monologue/user:
         password_digest: "Password confirmation"

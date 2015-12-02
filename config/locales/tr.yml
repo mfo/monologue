@@ -109,7 +109,7 @@ tr:
           settings: "Ayarlar"
           log_out: "Çıkış yap"
           users: "Kullanıcılar"
-  activerecord:
+  mongoid:
     attributes:
       monologue/user:
         password_digest: "Şifre onayı"

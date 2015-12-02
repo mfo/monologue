@@ -28,4 +28,4 @@ end
 
 gem 'coveralls', require: false
 
-gem 'pg'
+gem 'mongoid', '~> 5.0.0.beta', github: 'mongoid/mongoid'

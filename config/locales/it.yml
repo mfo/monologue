@@ -109,7 +109,7 @@ it:
           settings: "Impostazioni"
           log_out: "Esci"
           users: "Utenti"
-  activerecord:
+  mongoid:
     attributes:
       monologue/user:
         password_digest: "Conferma password"

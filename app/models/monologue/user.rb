@@ -1,5 +1,14 @@
-class Monologue::User < ActiveRecord::Base
-  has_many :posts
+class Monologue::User
+  include Mongoid::Document
+  include Mongoid::Timestamps
+  include ActiveModel::SecurePassword
+  
+  has_many :posts, class_name: "Monologue::Post"
+
+  field :name, type: String
+  field :email, type: String
+
+  field :password_digest, type: String
 
   has_secure_password
 

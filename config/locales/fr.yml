@@ -107,7 +107,7 @@ fr:
           settings: "Paramètres"
           log_out: "Déconnexion"
           users: "Utilisateur"
-  activerecord:
+  mongoid:
     attributes:
       monologue/user:
         password_digest: "Confirmation du mot de passe"
