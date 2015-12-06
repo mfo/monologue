@@ -24,6 +24,9 @@ class Monologue::Post
   validates :url, uniqueness: true
   validate :url_do_not_start_with_slash
 
+  index({published_at: 1, published: 1})
+  index({published_at: 1, published: 1, url: 1})
+
   def tag_list= tags_attr
     self.tag!(tags_attr.split(","))
   end

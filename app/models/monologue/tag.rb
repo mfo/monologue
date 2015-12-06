@@ -10,6 +10,8 @@ class Monologue::Tag
 
   validates :name, uniqueness: true,presence: true
 
+  index({name_downcase: 1})
+
   before_save do
     self.name_downcase = name.to_s.downcase
   end
