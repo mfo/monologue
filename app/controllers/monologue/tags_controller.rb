@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Monologue::TagsController < Monologue::ApplicationController
   def show
     @tag = retrieve_tag
@@ -5,12 +6,15 @@ class Monologue::TagsController < Monologue::ApplicationController
       @page = nil
       @posts = @tag.posts_with_tag
     else
-      redirect_to :root ,notice: "No post found with label \"#{params[:tag]}\""
+      redirect_to :root, notice: "No post found with label \"#{params[:tag]}\""
     end
   end
 
   private
+
   def retrieve_tag
-    Monologue::Tag.where(name_downcase: params[:tag].mb_chars.to_s.downcase).first
+    Monologue::Tag.for_domain(request.domain)
+                  .where(name_downcase: params[:tag].mb_chars.to_s.downcase)
+                  .first
   end
 end

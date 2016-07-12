@@ -97,12 +97,13 @@ en:
           save: 'Save'
         form:
           domain: 'Domain'
+          layout: 'Layout'
+          locale: 'Language'
           meta_description: 'Description'
           meta_keyword: 'Keywords'
           name: 'Name'
-          title: 'Title'
           subtitle: 'Subtitle'
-          locale: 'Language'
+          title: 'Title'
         index:
           create: 'New'
           name: 'Name'

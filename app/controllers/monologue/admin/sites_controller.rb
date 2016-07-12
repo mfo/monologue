@@ -68,7 +68,7 @@ class Monologue::Admin::SitesController < Monologue::Admin::BaseController
   end
 
   def site_params
-    params.require(:site).permit(:name, :domain, :title, :subtitle, :locale,
-                                 :meta_description, :meta_keyword)
+    params.require(:site).permit(:name, :domain, :title, :subtitle, :layout,
+                                 :locale, :meta_description, :meta_keyword)
   end
 end

@@ -94,12 +94,13 @@ fr:
           save: 'Enregistrer'
         form:
           domain: 'Domaine'
+          layout: 'Layout'
+          locale: 'Langue'
           meta_description: 'Description'
           meta_keyword: 'Mots-clés'
           name: 'Nom'
-          title: 'Titre'
           subtitle: 'Sous-titre'
-          locale: 'Langue'
+          title: 'Titre'
         index:
           create: 'Nouveau'
           name: 'Nom'

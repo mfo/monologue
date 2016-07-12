@@ -4,9 +4,7 @@ class Monologue::ApplicationController < ApplicationController
 
   force_ssl if Monologue::Config.force_ssl
 
-  # TODO: find a way to test that.
-  # It was asked in issue #54 (https://github.com/jipiboily/monologue/issues/54)
-  layout Monologue::Config.layout if Monologue::Config.layout
+  layout :custom_site_layout
 
   # only for front controllers
   before_action :load_site, :force_locale,
@@ -65,5 +63,9 @@ class Monologue::ApplicationController < ApplicationController
       end
       @first_post_year = posts.last.published_at.year
     end
+  end
+
+  def custom_site_layout
+    @site.layout ? @site.layout : 'monologue/application'
   end
 end

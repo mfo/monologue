@@ -8,13 +8,14 @@ class Monologue::Site
 
   has_many :posts, class_name: 'Monologue::Post'
 
-  field :name, type: String
-  field :title, type: String
-  field :subtitle, type: String
+  field :domain, type: String
+  field :layout, type: String
+  field :locale, type: String
   field :meta_description, type: String
   field :meta_keyword, type: String
-  field :domain, type: String
-  field :locale, type: String
+  field :name, type: String
+  field :subtitle, type: String
+  field :title, type: String
 
   validates :name, :locale, presence: true
   validates :domain, presence: true, uniqueness: true

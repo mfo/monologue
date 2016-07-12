@@ -1,6 +1,7 @@
 <%= site.error_messages %>
 <%= site.text_field :name, label:  t('.name'), class: 'span6', placeholder: 'Monologue' %>
 <%= site.text_field :domain, label:  t('.domain'), class: 'span6', placeholder: 'monologue.io (no www)' %>
+<%= site.text_field :layout, label:  t('.layout'), class: 'span12', placeholder: 'Custom site layout e.g. layouts/monologue' %>
 <%= site.text_field :title, label:  t('.title'), class: 'span12', placeholder: 'My super blog headline' %>
 <%= site.text_field :subtitle, label:  t('.subtitle'), class: 'span12', placeholder: 'My super blog subtitle' %>
 <%= site.text_field :meta_description, label:  t('.meta_description'), class: 'span12', placeholder: 'My super blog description for meta tag' %>
