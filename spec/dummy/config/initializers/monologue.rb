@@ -1,11 +1,12 @@
 Monologue.config do |c|
-  c.site_name = "@jipiboily / Jean-Philippe Boily"
-  c.site_subtitle = "my own place online"
-  c.site_url = "http://jipiboily.com"
+  # c.site_name = "@jipiboily / Jean-Philippe Boily"
+  # c.site_subtitle = "my own place online"
+  # c.site_url = "http://jipiboily.com"
 
-  c.meta_description = "This is my personal blog about Rails, Monologue, programming, etc..."
-  c.meta_keyword = "rails, programming, monologue, ruby"
+  # c.meta_description = "This is my personal blog about Rails, Monologue, programming, etc..."
+  # c.meta_keyword = "rails, programming, monologue, ruby"
 
+  c.force_ssl = false
   c.admin_force_ssl = false
   c.posts_per_page = 10
 

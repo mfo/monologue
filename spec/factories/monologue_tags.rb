@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :tag, class: Monologue::Tag do
-    name "Rails"
+    name 'Rails'
   end
 end

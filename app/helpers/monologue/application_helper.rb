@@ -11,7 +11,7 @@ module Monologue
     end
 
     def monologue_accurate_title
-      content_for?(:title) ? ((content_for :title) + " | #{Monologue::Config.site_name}") : Monologue::Config.site_name
+      content_for?(:title) ? ((content_for :title) + " | #{@site.title}") : @site.title
     end
 
     def rss_head_link

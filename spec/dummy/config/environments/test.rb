@@ -33,4 +33,9 @@ Dummy::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  # cause of use 127.0.0.1.xip.io domain
+  config.action_dispatch.tld_length = 5
+
+  # config.log_level = :info
 end

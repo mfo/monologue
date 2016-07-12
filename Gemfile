@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 # Declare your gem's dependencies in monologue.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -11,16 +11,16 @@ gemspec
 # your gem to rubygems.org.
 
 # To use debugger
-#gem 'ruby-debug'
-#gem 'ruby-debug19'
+# gem 'ruby-debug'
+# gem 'ruby-debug19'
 
 group :development, :test do
-  gem "thin"
+  gem 'thin'
   gem 'rails', '>= 4.0.4'
   gem 'responders', '~> 2.0'
   gem 'pry'
 
-  if RUBY_PLATFORM.downcase.include?("darwin")
+  if RUBY_PLATFORM.downcase.include?('darwin')
     gem 'rb-fsevent'
     gem 'growl'
   end
@@ -28,4 +28,4 @@ end
 
 gem 'coveralls', require: false
 
-gem 'mongoid', '~> 5.0.0.beta', github: 'mongoid/mongoid'
+gem 'mongoid'

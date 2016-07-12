@@ -1,17 +1,19 @@
-<%= sidebar_section_for(t(".archive")) do  %>
+<%= sidebar_section_for(t(".archive"), 'archive') do %>
   <div class="archive">
     <ul>
       <% DateTime.now.year.downto(@first_post_year) do |year| %>
         <li>
-          <span class="js-year blog-year" ><%= year %></span>
-          <ul class="js-months" style="display:none">
+          <a class="js-year blog-year" href='#'><%= year %></a>
+          <ul class="js-months" style="display: none;">
             <% 12.downto(1) do |month|
                 year_month = "#{year} #{month}"
               %>
-              <% if @archive_posts[year_month]%>
+              <% if @archive_posts[year_month] %>
                 <li>
-                  <span class="js-month blog-month" ><%= Date::MONTHNAMES[month] %></span>
-                  <ul class="js-posts" style="display:none">
+                  <a class="js-month blog-month" href='#'>
+                    <%= Date::MONTHNAMES[month] %>
+                  </a>
+                  <ul class="js-posts" style="display: none;">
                     <% @archive_posts[year_month].sort.reverse.each do |post| %>
                       <li><%= link_to post.title, post.full_url %></li>
                     <% end %>
@@ -24,4 +26,4 @@
       <% end %>
     </ul>
   </div>
-<% end  %>
+<% end %>

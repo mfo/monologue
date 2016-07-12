@@ -1,4 +1,4 @@
-<%= sidebar_section_for(t(".title")) do  %>
+<%= sidebar_section_for(t(".title"), 'tags-cloud') do  %>
   <% @tags.each do |tag| %>
     <%=link_to tag.name, tag_url(tag), class:label_for_tag(tag,@tags_frequency_min,@tags_frequency_max) %>
   <% end %>

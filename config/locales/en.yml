@@ -59,6 +59,7 @@ en:
           not_published: "Not published"
           status: "Published ?"
           author: "Author"
+          site: "Site"
         new:
           header: "New monologue"
         create:
@@ -75,6 +76,7 @@ en:
         form:
           title: "Title"
           content: "Content"
+          site: 'Site'
           url:
             caption: "URL<br/><i> This will be filled by default with '%{default_url}'. You can choose your own URL. Do not add '%{root}' at the beginning of your URL.</i>"
             generated_title: "your-post-title"
@@ -84,6 +86,36 @@ en:
           preview: "Preview"
           close: "Close"
           tags: "Tags"
+      sites:
+        create:
+          saved: 'Site created'
+        delete:
+          removed: 'Site removed'
+          fail: 'Failed to remove site!'
+        edit:
+          header: 'Edit'
+          save: 'Save'
+        form:
+          domain: 'Domain'
+          meta_description: 'Description'
+          meta_keyword: 'Keywords'
+          name: 'Name'
+          title: 'Title'
+          subtitle: 'Subtitle'
+          locale: 'Language'
+        index:
+          create: 'New'
+          name: 'Name'
+          domain: 'Domain'
+          locale: 'Langue'
+          edit: 'Edit'
+          delete: 'Delete'
+          confirm_delete: 'Are you sure?'
+        new:
+          header: "New site/domain"
+          create: 'New'
+        update:
+          saved: 'Site saved'
       comments:
         show:
           recent_comments: "Recent comments"
@@ -101,6 +133,8 @@ en:
     monologue:
       admin:
         nav_bar:
+          add_a_monologue_site: "Add a site"
+          list_sites: "List Sites"
           add_a_monologue: "Add a monologue"
           list_monologues: "List of monologues"
           comments: "Comments"
@@ -128,6 +162,14 @@ en:
               blank: "'Published at' is required"
             url:
               start_with_slash: "URL can't start with a slash ('/')"
+        monologue/site:
+          blank: "%{attribute} is required"
+          taken: "%{attribute} is already used"
+          attributes:
+            domain:
+              too_short: "The domain is too short"
+              too_long: "The domain is too long"
+              format: "The domain does not respect RFC 1035 format"
         monologue/user:
           blank: "%{attribute} is required"
           taken: "%{attribute} has already been taken"

@@ -3,12 +3,6 @@ module Monologue
     include ConfigurationExtensions
 
     attr_accessor :disqus_shortname,
-                  :site_name,
-                  :site_subtitle,
-                  :site_url,
-                  :meta_description,
-                  :meta_keyword,
-
                   :show_rss_icon,
 
                   :twitter_username,
@@ -16,18 +10,22 @@ module Monologue
 
                   :facebook_like_locale,
                   :facebook_url,
-                  :facebook_logo, #used in the open graph protocol to display an image when a post is liked
+
+                  # used in the open graph protocol to display an image
+                  # when a post is liked
+                  :facebook_logo,
                   :facebook_app_id,
 
                   :google_plus_account_url,
                   :google_plusone_locale,
 
-                  :use_pinterest, #display pinterest?
+                  :use_pinterest, # display pinterest?
 
                   :linkedin_url,
 
                   :github_username,
 
+                  :force_ssl,
                   :admin_force_ssl,
                   :posts_per_page,
                   :admin_posts_per_page,
@@ -38,9 +36,8 @@ module Monologue
                   :preview_size
 
     def initialize
-      @preview_size = 1000;
+      @preview_size = 1000
     end
-
   end
 
   def self.config(&block)

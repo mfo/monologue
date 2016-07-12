@@ -1,24 +1,24 @@
+# frozen_string_literal: true
 class Monologue::PostsController < Monologue::ApplicationController
   def index
     @page = params[:page].nil? ? 1 : params[:page]
-    @posts = Monologue::Post.page(@page).includes(:user).published
+    @posts = posts_for_site.page(@page).includes(:user).published
   end
 
   def show
     if monologue_current_user
-      @post = Monologue::Post.default.where(url: params[:post_url]).first
+      @post = posts_for_site.default.where(url: params[:post_url]).first
     else
-      @post = Monologue::Post.published.where(url: params[:post_url]).first
+      @post = posts_for_site.published.where(url: params[:post_url]).first
     end
-    if @post.nil?
-      not_found
-    end
+    not_found if @post.nil?
   end
 
   def feed
-    @posts = Monologue::Post.published.limit(25)
+    @posts = posts_for_site.published.limit(25)
     if params[:tags].present?
-      tags = Monologue::Tag.where(name_downcase: params[:tags].split(",")).pluck(:id)
+      tags = params[:tags].split(',')
+      tag_ids = Monologue::Tag.where(:name_downcase.in => tags).pluck(:id)
       @posts = @posts.where(:tag_ids.in => tag_ids)
     end
     render 'feed', layout: false

@@ -1,22 +1,23 @@
 # encoding: UTF-8
+# frozen_string_literal: true
 FactoryGirl.define do
   factory :post, class: Monologue::Post do
     published true
     association :user
+    association :site
     sequence(:title) { |i| "post title #{i}" }
-    content "this is some text with french accents éàöûù and so on...even html tags like <br />"
+    content 'this is some text with accents éàöûù and even html tags <br />'
     sequence(:url) { |i| "post/ulr#{i}" }
-    sequence(:published_at) {|i| DateTime.new(2011,1,1,12,0,17) + i.days }
+    sequence(:published_at) { |i| DateTime.new(2011, 1, 1, 12, 0, 17) + i.days }
   end
 
-  factory :unpublished_post, class: Monologue::Post, parent: :post do |post|
+  factory :unpublished_post, class: Monologue::Post, parent: :post do |_post|
     published false
-    title "unpublished"
-    url "unpublished"
+    title 'unpublished'
+    url 'unpublished'
   end
 
   factory :post_with_tags, class: Monologue::Post, parent: :post do |post|
-    post.after_create { |p| p.tag!(['Rails', 'a great tag', 'Тест'])}
+    post.after_create { |p| p.tag!(['Rails', 'a great tag', 'Тест']) }
   end
-
 end

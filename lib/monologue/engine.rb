@@ -1,10 +1,10 @@
-require "truncate_html"
-require "ckeditor"
-require "select2-rails"
-require "jquery-rails"
-require "sass-rails"
-require "coffee-rails"
-require "responders"
+require 'truncate_html'
+require 'ckeditor'
+require 'select2-rails'
+require 'jquery-rails'
+require 'sass-rails'
+require 'coffee-rails'
+require 'responders'
 
 module Monologue
   class Engine < Rails::Engine
@@ -25,7 +25,8 @@ module Monologue
       ]
     end
 
-    initializer 'monologue.configuration', :before => :load_config_initializers do |app|
+    initializer 'monologue.configuration',
+                before: :load_config_initializers do |app|
       app.config.monologue = Monologue::Configuration.new
       Monologue::Config = app.config.monologue
     end

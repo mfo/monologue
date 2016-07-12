@@ -21,7 +21,6 @@ class Monologue::Admin::UsersController < Monologue::Admin::BaseController
 
   def destroy
     if @user.destroy
-      redirect_to admin_users_path, notice:  I18n.t("monologue.admin.users.delete.removed", user: @user.name)
     else
       redirect_to admin_users_path, alert: I18n.t("monologue.admin.users.delete.failed", user: @user.name)
    end
