@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Monologue
   class Configuration
     include ConfigurationExtensions
@@ -31,7 +32,6 @@ module Monologue
                   :admin_posts_per_page,
                   :google_analytics_id,
                   :gauge_analytics_site_id,
-                  :layout,
                   :sidebar,
                   :preview_size
 
@@ -40,7 +40,7 @@ module Monologue
     end
   end
 
-  def self.config(&block)
+  def self.config
     yield(Rails.application.config.monologue)
   end
 end
