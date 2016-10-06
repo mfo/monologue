@@ -1,7 +1,7 @@
 # encoding: UTF-8
 # frozen_string_literal: true
 require 'spec_helper'
-describe 'users' do
+describe 'users', type: :feature do
   let(:user) { Factory(:user) }
 
   before do
@@ -34,11 +34,10 @@ describe 'users' do
     end
 
     it 'validates user password and confirmation match' do
-      pending 'temporarily disabled until fix found'
       fill_in 'user_password', with: 'password'
       fill_in 'user_password', with: 'password2'
       click_button 'Save'
-      page.should have_content(I18n.t('activerecord.errors.models.monologue/user.attributes.password.confirmation'))
+      page.should have_content("doesn't match Password")
     end
 
     it "doesn't change password if none is provided" do

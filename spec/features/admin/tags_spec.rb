@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe 'tags' do
+describe 'tags', type: :feature do
   context 'creating a post as a logged in user' do
     before(:each) do
       Factory(:site)

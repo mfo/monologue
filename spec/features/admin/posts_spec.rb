@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe 'posts' do
+describe 'posts', type: :feature do
   before(:each) do
     @site = create(:site)
   end

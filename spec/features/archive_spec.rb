@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe 'archive', js: true do
+describe 'archive', type: :feature, js: true do
   before(:each) do
     @site1 = Factory(:site, domain: '127.0.0.1.xip.io')
     Factory(:post, title: 'post X', published_at: '2011-11-11', site: @site1)

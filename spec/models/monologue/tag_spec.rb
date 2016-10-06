@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Monologue::Tag do
+describe Monologue::Tag, type: :model do
   before(:each) do
-    @tag= Factory(:tag)
+    @tag = Factory(:tag)
   end
 
   it "is valid with valid attributes" do

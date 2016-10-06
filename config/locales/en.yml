@@ -176,4 +176,4 @@ en:
           taken: "%{attribute} has already been taken"
           attributes:
             password:
-              confirmation: "Password and confirmation doesn't match."
+            password_confirmation: "Password and confirmation doesn't match."

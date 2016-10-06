@@ -19,6 +19,7 @@ group :development, :test do
   gem 'rails', '>= 5'
   gem 'responders'
   gem 'pry'
+  gem 'rails-controller-testing'
 
   if RUBY_PLATFORM.downcase.include?('darwin')
     gem 'rb-fsevent'

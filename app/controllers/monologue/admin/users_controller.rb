@@ -1,6 +1,6 @@
 class Monologue::Admin::UsersController < Monologue::Admin::BaseController
 
-  before_filter :load_user, except: [:index, :new, :create]
+  before_action :load_user, except: [:index, :new, :create]
 
   def edit
 

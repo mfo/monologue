@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Monologue::Configuration do
+describe Monologue::Configuration, type: :model do
   let(:configuration) { Monologue::Configuration.new }
 
   describe 'Adding a class dynamically to the configuration' do
@@ -21,5 +21,4 @@ describe Monologue::Configuration do
       configuration.new_config.prop2.should == 5
     end
   end
-
 end

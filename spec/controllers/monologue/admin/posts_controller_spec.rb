@@ -1,6 +1,7 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
-describe Monologue::Admin::PostsController do
+describe Monologue::Admin::PostsController, type: :controller do
   let(:user) { create(:user) }
   before do
     sign_in_as user
@@ -12,21 +13,22 @@ describe Monologue::Admin::PostsController do
     let(:new_content) { 'This is the new content, for real!' }
     let(:new_title) { 'nothing to do, I find it awesome!' }
 
-    context :valid do
+    context 'valid' do
       before do
-        put :update,
+        put :update, params: {
           id: post.id,
           post: {
             content: new_content,
             title: new_title,
             published: false
           }
+        }
         post.reload
       end
 
       it { expect(post.content).to eq new_content }
       it { expect(post.title).to eq new_title }
-      it { expect(post.published).to be_false }
+      it { expect(post.published).to be false }
     end
 
     # context :invalid do

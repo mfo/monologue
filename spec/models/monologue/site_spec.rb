@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Monologue::Site do
+describe Monologue::Site, type: :model do
   before(:each) do
     @site = Factory(:site)
     puts @site.domain.inspect

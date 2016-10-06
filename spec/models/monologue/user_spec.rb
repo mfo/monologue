@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Monologue::User do
+describe Monologue::User, type: :model do
   it { validate_presence_of(:name) }
   it { validate_presence_of(:email) }
   it { validate_uniqueness_of(:email) }

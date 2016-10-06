@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Monologue::PostsController do
+describe Monologue::PostsController, type: :controller do
   before do
     @routes = Monologue::Engine.routes
   end

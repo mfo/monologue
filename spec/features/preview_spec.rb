@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 require 'spec_helper'
-describe 'preview' do
+describe 'preview', type: :feature do
   before(:each) do
     @site = Factory(:site, domain: '127.0.0.1.xip.io')
     url = 'post/1'

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'spec_helper'
 
-describe Monologue::Post do
+describe Monologue::Post, type: :model do
   before(:each) do
     @post = Factory(:post)
   end
