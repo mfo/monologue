@@ -20,11 +20,25 @@ ro:
         title: "Ultimele tweet-uri"
       tag_cloud:
         title: "Tag-uri"
+      bestoff:
+        title: "Best off"
     tags:
       show:
         showing_post_with_tag: "Articole cu tag-ul"
         show_all_posts: "Toate articolele"
     admin:
+      tags:
+        edit:
+          header: 'Edit'
+        index:
+          name: "Name"
+          posts_count: 'Post count'
+          edit: "Edit"
+          delete: "Delete"
+        form:
+          bestoff: "Is bestoff"
+          icon: "Icon"
+          save: "Save"
       login:
         need_auth: "Pentru a accesa aceasta pagina, trebuie sa va autentificati."
       users:
@@ -80,6 +94,7 @@ ro:
             generated_title: "titlul-articolului"
           published_at: "Publicat la data de"
           published: "Publicat"
+          bestoff: "bestoff"
           save: "Salvati"
           preview: "Vizualizare"
           close: "Inchide"
@@ -103,6 +118,7 @@ ro:
         nav_bar:
           add_a_monologue: "Adaugati articol"
           list_monologues: "Lista articole"
+          tags: Tags
           comments: "Comentarii"
           cache: "Gestionati cache"
           edit_user_info: "Contul meu"

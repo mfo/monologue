@@ -7,11 +7,26 @@ class Monologue::ApplicationController < ApplicationController
   layout :custom_site_layout
 
   # only for front controllers
-  before_action :load_site, :force_locale,
-                :recent_posts, :all_tags,
-                :archive_posts, if: proc { |controller|
-                  !controller.class.to_s.start_with?('Monologue::Admin::')
-                }
+  before_action :load_site,
+                :force_locale, if: proc { |controller| controller.public? }
+  before_action :recent_posts, if: proc { |controller|
+    controller.public? && Monologue::Config.sidebar.try(:include?, 'latest_posts')
+  }
+  before_action :all_tags, if: proc { |controller|
+    controller.public? && (Monologue::Config.sidebar.try(:include?, 'tag_cloud') ||
+                           Monologue::Config.sidebar.try(:include?, 'categories'))
+  }
+  before_action :archive_posts, if: proc { |controller|
+    controller.public? && Monologue::Config.sidebar.try(:include?, 'archive')
+
+  }
+  before_action :bestoff, if: proc { |controller|
+    controller.public? && Monologue::Config.sidebar.try(:include?, 'bestoff')
+  }
+
+  def public?
+    !self.class.name.to_s.start_with?('Monologue::Admin::')
+  end
 
   def force_locale
     I18n.locale = @site.locale
@@ -34,10 +49,13 @@ class Monologue::ApplicationController < ApplicationController
   end
 
   def all_tags
-    @tags = tags_for_site.order([:name, :asc]).select { |t| t.frequency > 0 }
+    @tags = tags_for_site.where(:posts_count.gt => 0)
+                          .order([:posts_count, :desc])
+                          .entries
+
     # could use minmax here but it's only supported with ruby > 1.9'
-    @tags_frequency_min = @tags.map(&:frequency).min
-    @tags_frequency_max = @tags.map(&:frequency).max
+    @tags_frequency_min = @tags.map(&:posts_count).min
+    @tags_frequency_max = @tags.map(&:posts_count).max
   end
 
   def not_found
@@ -49,6 +67,10 @@ class Monologue::ApplicationController < ApplicationController
     else
       render action: '404', status: 404, formats: [:html]
     end
+  end
+
+  def bestoff
+    @bestoff = posts_for_site.published.bestoff
   end
 
   def archive_posts

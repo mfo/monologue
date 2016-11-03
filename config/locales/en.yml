@@ -20,11 +20,25 @@ en:
         title: "Latest tweets"
       tag_cloud:
         title: "Tags"
+      bestoff:
+        title: "Best off"
     tags:
       show:
         showing_post_with_tag: "Showing posts with label"
         show_all_posts: "Show all posts"
     admin:
+      tags:
+        edit:
+          header: 'Edit'
+        index:
+          name: "Name"
+          posts_count: 'Post count'
+          edit: "Edit"
+          delete: "Delete"
+        form:
+          bestoff: "Is bestoff"
+          icon: "Icon"
+          save: "Save"
       login:
         need_auth: "You must first log in to access admin section."
       users:
@@ -80,8 +94,10 @@ en:
           url:
             caption: "URL<br/><i> This will be filled by default with '%{default_url}'. You can choose your own URL. Do not add '%{root}' at the beginning of your URL.</i>"
             generated_title: "your-post-title"
+          cover: "Cover"
           published_at: "Published at"
           published: "Published"
+          bestoff: "bestoff"
           save: "Save"
           preview: "Preview"
           close: "Close"
@@ -138,6 +154,7 @@ en:
           list_sites: "List Sites"
           add_a_monologue: "Add a monologue"
           list_monologues: "List of monologues"
+          tags: Tags
           comments: "Comments"
           cache: "Manage cache"
           edit_user_info: "My account"

@@ -20,11 +20,25 @@ it:
         title: "Ultimi tweet"
       tag_cloud:
         title: "Tag"
+      bestoff:
+        title: "Best off"
     tags:
       show:
         showing_post_with_tag: "Lista dei post con etichetta"
         show_all_posts: "Mostra tutti i post"
     admin:
+      tags:
+        edit:
+          header: 'Edit'
+        index:
+          name: "Name"
+          posts_count: 'Post count'
+          edit: "Edit"
+          delete: "Delete"
+        form:
+          bestoff: "Is bestoff"
+          icon: "Icon"
+          save: "Save"
       login:
         need_auth: "Devi prima effettuare il login per accedere alla sezione admin."
       users:
@@ -80,6 +94,7 @@ it:
             generated_title: "titolo-del-post"
           published_at: "Pubblicato il"
           published: "Pubblicato"
+          bestoff: "bestoff"
           save: "Salva"
           preview: "Anteprima"
           close: "Chiudi"
@@ -103,6 +118,7 @@ it:
         nav_bar:
           add_a_monologue: "Aggiungi un monologue"
           list_monologues: "Lista di monologues"
+          tags: Tags
           comments: "Commenti"
           cache: "Gestisci cache"
           edit_user_info: "Il mio account"

@@ -20,11 +20,25 @@ fr:
         title: "Derniers tweets"
       tag_cloud:
         title: "Labels"
+      bestoff:
+        title: "Best off"
     tags:
       show:
         showing_post_with_tag: "Articles ayant le label"
         show_all_posts: "Voir tous les articles"
     admin:
+      tags:
+        edit:
+          header: 'Edit'
+        index:
+          name: "Name"
+          posts_count: 'Post count'
+          edit: "Edit"
+          delete: "Delete"
+        form:
+          bestoff: "Is bestoff"
+          icon: "Icon"
+          save: "Save"
       login:
         need_auth: "Vous devez d'abord vous connectez à la section d'administration."
       users:
@@ -77,8 +91,10 @@ fr:
           url:
             caption: "Adresse URL<br/><i> Ce sera rempli par défaut avec '%{default_url}'. Vous pouvez aussi choisir votre propre adresse URL. N'ajoutez pas '%{root}' au début de l'adresse URL.</i>"
             generated_title: "nom-de-votre-article"
+          cover: Couverture
           published_at: "Publié le"
           published: "Publié"
+          bestoff: "bestoff"
           save: "Sauvegarder"
           preview: "Aperçu"
           close: "Fermer"
@@ -135,6 +151,7 @@ fr:
           list_sites: "Sites"
           add_a_monologue: "Ajouter un article"
           list_monologues: "Liste des articles"
+          tags: Tags
           comments: "Commentaires"
           cache: "Gérer la cache"
           edit_user_info: "Mon compte"

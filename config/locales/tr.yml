@@ -20,11 +20,25 @@ tr:
         title: "Son tweeler"
       tag_cloud:
         title: "Etiketler"
+      bestoff:
+        title: "Best off"
     tags:
       show:
         showing_post_with_tag: "Bu etikete sahip gönderiler gösteriliyor"
         show_all_posts: "Bütün göderileri göster"
     admin:
+      tags:
+        edit:
+          header: 'Edit'
+        index:
+          name: "Name"
+          posts_count: 'Post count'
+          edit: "Edit"
+          delete: "Delete"
+        form:
+          bestoff: "Is bestoff"
+          icon: "Icon"
+          save: "Save"
       login:
         need_auth: "Admin kısmına erişmek için önce giriş yapmalısınız."
       users:
@@ -56,6 +70,7 @@ tr:
           edit: "Düzenle"
           delete: "Sil"
           published: "Evet"
+          bestoff: "bestoff"
           not_published: "Yayınlanmadı"
           status: "Yayınlandı mı?"
           author: "Yazar"
@@ -103,6 +118,7 @@ tr:
         nav_bar:
           add_a_monologue: "Monolog ekle"
           list_monologues: "Monolog listesi"
+          tags: Tags
           comments: "Yorumlar"
           cache: "Ön belleği yönet"
           edit_user_info: "Hesbım"

@@ -23,8 +23,12 @@ Monologue.config do |c|
   # c.gauge_analytics_site_id = "YOUR COGE FROM GAUG.ES"
   # c.google_analytics_id = "YOUR GA CODE"
 
-  c.sidebar = ["latest_posts", "latest_tweets", "categories", "tag_cloud", "archive"]
-
+  c.sidebar = %w(latest_posts
+                 latest_tweets
+                 categories
+                 tag_cloud
+                 archive
+                 bestoff)
 
   #SOCIAL
   c.twitter_username = "jipiboily"
@@ -37,4 +41,10 @@ Monologue.config do |c|
   c.github_username = "jipiboily"
   c.show_rss_icon = true
 
+  c.s3_access_key_id = ENV['AWS_ACCESS_KEY_ID']
+  c.s3_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
+  c.s3_bucket = ENV['S3_BUCKET']
+  c.s3_end_point = ENV['S3_ENDPOINT']
+  c.s3_host_alias = ENV['S3_HOST_ALIAS']
+  c.s3_region = ENV['S3_AWS_REGION']
 end
