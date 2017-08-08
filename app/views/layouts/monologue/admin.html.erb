@@ -17,5 +17,11 @@
 
     <%= yield %>
   </div>
+   <%= javascript_include_tag Ckeditor.cdn_url %>
+  <script>
+    CKEDITOR.replace( 'post_content', {
+      customConfig: '<%= javascript_url('monologue/admin/ckeditor-config.js') %>'
+      });
+  </script>
 </body>
 </html>
